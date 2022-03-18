@@ -215,8 +215,18 @@
                     <groupId>org.apache.felix</groupId>
                     <artifactId>maven-bundle-plugin</artifactId>
                     <extensions>true</extensions>
+                    <executions>
+                        <execution>
+                            <id>download-licenses</id>
+                            <phase>verify</phase>
+                            <goals>
+                                <goal>bundle</goal>
+                            </goals>
+                        </execution>
+                    </executions>
                     <configuration>
                         <manifestLocation>META-INF</manifestLocation>
+                        <excludeDependencies>true</excludeDependencies>
                         <instructions>
                             <Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
                         </instructions>

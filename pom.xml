@@ -237,7 +237,6 @@
                     </executions>
                     <configuration>
                         <cleanLicensesOutputDirectory>true</cleanLicensesOutputDirectory>
-                        <excludedGroups>zav.*</excludedGroups>
                         <includedScopes>compile</includedScopes>
                     </configuration>
                 </plugin>

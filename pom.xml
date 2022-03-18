@@ -49,6 +49,7 @@
         <maven-dependency-plugin.version>3.3.0</maven-dependency-plugin.version>
         <maven-resources-plugin.version>3.2.0</maven-resources-plugin.version>
         <maven-bundle-plugin.version>5.1.4</maven-bundle-plugin.version>
+        <maven-enforcer-plugin.version>3.0.0</maven-enforcer-plugin.version>
 		<license-maven-plugin.version>2.0.0</license-maven-plugin.version>
         <!-- .. Misc .......................................................... -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -148,6 +149,12 @@
                 <artifactId>maven-dependency-plugin</artifactId>
                 <version>${maven-dependency-plugin.version}</version>
             </plugin>
+            <!-- Clean Code -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <version>${maven-enforcer-plugin.version}</version>
+            </plugin>
             <!-- OSGi -->
             <plugin>
                 <groupId>org.apache.felix</groupId>
@@ -208,6 +215,42 @@
                     </executions>
                     <configuration>
                         <includeScope>runtime</includeScope>
+                    </configuration>
+                </plugin>
+                <!-- Clean Code -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-enforcer-plugin</artifactId>
+                    <version>${maven-enforcer-plugin.version}</version>
+                    <executions>
+                        <execution>
+                            <id>enforce-dependencies</id>
+                            <phase>validate</phase>
+                            <goals>
+                                <goal>enforce</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <rules>
+                            <banDuplicatePomDependencyVersions/>
+                            <requireUpperBoundDeps/>
+                            <bannedDependencies>
+                                <excludes>
+                                    <exclude>javax.inject:javax.inject:*:jar:compile</exclude>
+                                    <exclude>ch.qos.logback:logback-classic:*:jar:compile</exclude>
+                                    <exclude>com.google.code.findbugs:annotations:*:jar:compile</exclude>
+                                    <exclude>com.google.code.findbugs:jsr305:*:jar:compile</exclude>
+                                    <exclude>com.google.errorprone:error_prone_annotations:*:jar:compile</exclude>
+                                    <exclude>com.google.j2objc:j2objc-annotations:*:jar:compile</exclude>
+                                    <exclude>commons-collections:commons-collections</exclude>
+                                    <exclude>org.apache.commons:commons-lang</exclude>
+                                    <exclude>org.checkerframework:checker-qual:*:jar:compile</exclude>
+                                    <exclude>org.codehaus.mojo:animal-sniffer-annotations:*:jar:compile</exclude>
+                                    <exclude>org.jetbrains:annotations:*:jar:compile</exclude>
+                                </excludes>
+                            </bannedDependencies>
+                        </rules>
                     </configuration>
                 </plugin>
                 <!-- OSGi -->

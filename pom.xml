@@ -20,7 +20,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>zav.parent</groupId>
     <artifactId>project</artifactId>
-    <version>1.0.0</version>
+    <version>2.0.0</version>
 
     <packaging>pom</packaging>
 
@@ -212,8 +212,18 @@
                                 <goal>copy-dependencies</goal>
                             </goals>
                         </execution>
+                        <execution>
+                            <id>analyze-dependencies</id>
+                            <phase>verify</phase>
+                            <goals>
+                                <goal>analyze-only</goal>
+                            </goals>
+                        </execution>
                     </executions>
                     <configuration>
+                        <ignoredUsedUndeclaredDependencies>*:*:*:*</ignoredUsedUndeclaredDependencies>
+                        <ignoreNonCompile>true</ignoreNonCompile>
+                        <failOnWarning>true</failOnWarning>
                         <outputDirectory>${project.build.directory}/lib</outputDirectory>
                         <includeScope>runtime</includeScope>
                     </configuration>

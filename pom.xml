@@ -53,6 +53,7 @@
         <maven-site-plugin.version>3.12.0</maven-site-plugin.version>
         <maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
         <maven-pmd-plugin.version>3.16.0</maven-pmd-plugin.version>
+        <maven-project-info-reports-plugin.version>3.3.0</maven-project-info-reports-plugin.version>
 		<license-maven-plugin.version>2.0.0</license-maven-plugin.version>
         <flatten-maven-plugin.version>1.2.7</flatten-maven-plugin.version>
         <checkstyle.version>10.2</checkstyle.version>
@@ -376,6 +377,11 @@
                     </executions>
                 </plugin>
                 <!-- Static Code Analysis -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-project-info-reports-plugin</artifactId>
+                    <version>${maven-project-info-reports-plugin.version}</version>
+                </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-checkstyle-plugin</artifactId>

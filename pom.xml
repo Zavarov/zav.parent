@@ -107,7 +107,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-javadoc-plugin</artifactId>
-                    <version>${jacoco-maven-plugin.version}</version>
+                    <version>${maven-javadoc-plugin.version}</version>
                     <configuration>
                         <quiet>true</quiet>
                         <javadocExecutable>${java.home}/bin/javadoc</javadocExecutable>

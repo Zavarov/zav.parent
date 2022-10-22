@@ -20,7 +20,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>zav.parent</groupId>
     <artifactId>project</artifactId>
-    <version>3.2.1</version>
+    <version>3.2.2</version>
 
     <packaging>pom</packaging>
 
@@ -150,7 +150,6 @@
                         </execution>
                     </executions>
                     <configuration>
-                        <ignoredUsedUndeclaredDependencies>*:*:*:*</ignoredUsedUndeclaredDependencies>
                         <ignoreNonCompile>true</ignoreNonCompile>
                         <failOnWarning>true</failOnWarning>
                         <outputDirectory>${project.build.directory}/lib</outputDirectory>

@@ -20,7 +20,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>zav.parent</groupId>
     <artifactId>project</artifactId>
-    <version>3.2.3</version>
+    <version>3.3.0</version>
 
     <packaging>pom</packaging>
 
@@ -48,7 +48,7 @@
         <maven-pmd-plugin.version>3.16.0</maven-pmd-plugin.version>
         <maven-project-info-reports-plugin.version>3.3.0</maven-project-info-reports-plugin.version>
         <dependency-check-maven.version>7.1.0</dependency-check-maven.version>
-		<license-maven-plugin.version>2.0.0</license-maven-plugin.version>
+        <cyclonedx-maven-plugin.version>2.7.3</cyclonedx-maven-plugin.version>
         <flatten-maven-plugin.version>1.2.7</flatten-maven-plugin.version>
         <spotbugs-maven-plugin.version>4.7.0.0</spotbugs-maven-plugin.version>
         <findsecbugs-plugin.version>1.12.0</findsecbugs-plugin.version>
@@ -207,22 +207,9 @@
                 </plugin>
                 <!-- License -->
                 <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>license-maven-plugin</artifactId>
-                    <version>${license-maven-plugin.version}</version>
-                    <executions>
-                        <execution>
-                            <id>download-licenses</id>
-                            <phase>generate-resources</phase>
-                            <goals>
-                                <goal>download-licenses</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                    <configuration>
-                        <cleanLicensesOutputDirectory>true</cleanLicensesOutputDirectory>
-                        <includedScopes>compile</includedScopes>
-                    </configuration>
+                    <groupId>org.cyclonedx</groupId>
+                    <artifactId>cyclonedx-maven-plugin</artifactId>
+                    <version>2.7.3</version>
                 </plugin>
                 <!-- Flat POM -->
                 <plugin>
